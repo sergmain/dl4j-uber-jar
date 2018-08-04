@@ -63,7 +63,7 @@
     <!--mvn -Djavacpp.platform=linux-x86_64 clean package
     -->
     <build>
-        <finalName>htrucker-ai-dl4j</finalName>
+        <finalName>dl4j-uber-jar</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
