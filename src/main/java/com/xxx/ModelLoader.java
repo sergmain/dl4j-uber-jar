@@ -20,7 +20,6 @@ public class ModelLoader implements CommandLineRunner {
         SpringApplication.run(ModelLoader.class, args);
     }
 
-    public static final String csvFull = "1,0,0,2778.0,0.0,0.0,994.0,0.0,2899.0,1429.0,1863.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,";
     public static final String csv = "2778.0,0.0,0.0,994.0,0.0,2899.0,1429.0,1863.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,";
     public static final String csv1 = "875.0,0.0,994.0,0.0,153.0,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,";
     public static final String csv2 = "469.0,0.0,1561.0,834.0,2506.0,89.0,1113.0,0.0,0.0,2288.0,0.0,0.0,0.0,0.0,2499.0,1476.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,";
@@ -52,8 +51,6 @@ public class ModelLoader implements CommandLineRunner {
         }
         print("oneDZeros", oneDZeros);
 
-//        int[] predict = network.predict(oneDZeros);
-//        System.out.println("predict = " + Arrays.toString(predict));
         INDArray result = model.output(oneDZeros);
 
         print("result", result);
@@ -65,15 +62,5 @@ public class ModelLoader implements CommandLineRunner {
         System.out.println(tag + ":\n" + arr.toString());
         System.out.println("----------------");
     }
-
-    private static void print(String tag, INDArray [] arrays) {
-        System.out.println("----------------");
-        System.out.println(tag);
-        for (INDArray array : arrays) {
-            System.out.println("\n" + array);
-        }
-        System.out.println("----------------");
-    }
-
 }
 
