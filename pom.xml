@@ -24,21 +24,14 @@
 
         <!-- Change the nd4j.backend property to nd4j-cuda-8.0-platform, nd4j-cuda-9.0-platform or nd4j-cuda-9.1-platform to use CUDA GPUs -->
         <nd4j.backend>nd4j-native-platform</nd4j.backend>
-
-        <nd4j.version>1.0.0-beta</nd4j.version>
-        <dl4j.version>1.0.0-beta</dl4j.version>
-        <datavec.version>1.0.0-beta</datavec.version>
-        <arbiter.version>1.0.0-beta</arbiter.version>
-        <rl4j.version>1.0.0-beta</rl4j.version>
-        <scala.binary.version>2.11</scala.binary.version>
         <nd4j-platform>linux-x86_64</nd4j-platform>
-        <dl4j.version>1.0.0-beta</dl4j.version>
-        <nd4j.version>1.0.0-beta</nd4j.version>
-        <logback.version>1.2.3</logback.version>
-        <java.version>1.8</java.version>
-        <openblas.version>0.2.20-1.4.1</openblas.version>
-        <nd4j-platform>windows-x86_64</nd4j-platform>
-        <maven-shade-plugin.version>2.4.3</maven-shade-plugin.version>
+
+        <dl4j.version>1.0.0-beta2</dl4j.version>
+        <nd4j.version>1.0.0-beta2</nd4j.version>
+        <datavec.version>1.0.0-beta2</datavec.version>
+        <arbiter.version>1.0.0-beta2</arbiter.version>
+        <rl4j.version>1.0.0-beta2</rl4j.version>
+
     </properties>
 
     <dependencyManagement>
