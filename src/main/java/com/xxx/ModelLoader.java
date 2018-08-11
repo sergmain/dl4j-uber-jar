@@ -6,35 +6,33 @@ import org.deeplearning4j.nn.modelimport.keras.exceptions.UnsupportedKerasConfig
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.StringTokenizer;
 
-@SpringBootApplication
-public class ModelLoader implements CommandLineRunner {
+@Service
+public class ModelLoader{
 
-    public static void main(String[] args) {
-        SpringApplication.run(ModelLoader.class, args);
+    private MultiLayerNetwork model;
+
+    @PostConstruct
+    public void init() throws UnsupportedKerasConfigurationException, IOException, InvalidKerasConfigurationException {
+
+        File tempDir = new File("./target");
+        File modelFile = File.createTempFile("model-", ".h5", tempDir);
+        try (FileOutputStream fos = new FileOutputStream(modelFile); InputStream is = ModelLoader.class.getResourceAsStream("/tiny-model-op.h5")) {
+            org.apache.commons.compress.utils.IOUtils.copy(is, fos, 100000);
+        }
+
+        model = KerasModelImport.importKerasSequentialModelAndWeights(modelFile.getAbsolutePath());
     }
 
-    public static final String csv = "2778.0,0.0,0.0,994.0,0.0,2899.0,1429.0,1863.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,";
-    public static final String csv1 = "875.0,0.0,994.0,0.0,153.0,0.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,";
-    public static final String csv2 = "469.0,0.0,1561.0,834.0,2506.0,89.0,1113.0,0.0,0.0,2288.0,0.0,0.0,0.0,0.0,2499.0,1476.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,";
-
-    public void run(String... args) throws IOException, InvalidKerasConfigurationException, UnsupportedKerasConfigurationException {
-
-
-        MultiLayerNetwork model = KerasModelImport.importKerasSequentialModelAndWeights("data\\model-op.h5");
-
-        predict(model, csv);
-        predict(model, csv1);
-        predict(model, csv2);
-    }
-
-    private void predict(MultiLayerNetwork model, String csv) {
+    void predict(String csv) {
         int total = 0;
         for (int i = 0; i < csv.length(); i++) {
             if (csv.charAt(i)==',') total++;

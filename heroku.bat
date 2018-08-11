@@ -1,0 +1,1 @@
+E:\opt\heroku\bin\heroku.exe %*
