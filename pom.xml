@@ -78,7 +78,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.xxx.ModelLoader</mainClass>
+                    <mainClass>com.xxx.AppRunner</mainClass>
                     <includeSystemScope>true</includeSystemScope>
                 </configuration>
             </plugin>

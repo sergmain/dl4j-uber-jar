@@ -16,7 +16,7 @@ import java.io.InputStream;
 import java.util.StringTokenizer;
 
 @Service
-public class ModelLoader{
+public class ModelService {
 
     private MultiLayerNetwork model;
 
@@ -25,7 +25,7 @@ public class ModelLoader{
 
         File tempDir = new File("./target");
         File modelFile = File.createTempFile("model-", ".h5", tempDir);
-        try (FileOutputStream fos = new FileOutputStream(modelFile); InputStream is = ModelLoader.class.getResourceAsStream("/tiny-model-op.h5")) {
+        try (FileOutputStream fos = new FileOutputStream(modelFile); InputStream is = ModelService.class.getResourceAsStream("/tiny-model-op.h5")) {
             org.apache.commons.compress.utils.IOUtils.copy(is, fos, 100000);
         }
 

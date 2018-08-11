@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SimpleRestController {
 
-    private final ModelLoader modelLoader;
+    private final ModelService modelService;
 
-    public SimpleRestController(ModelLoader modelLoader) {
-        this.modelLoader = modelLoader;
+    public SimpleRestController(ModelService modelService) {
+        this.modelService = modelService;
     }
 
     private static final String csv = "2778.0,0.0,0.0,994.0,0.0,2899.0,1429.0,1863.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,";
@@ -19,7 +19,7 @@ public class SimpleRestController {
 
     @GetMapping("/api")
     public String rest() {
-        modelLoader.predict(csv2);
+        modelService.predict(csv2);
         return "Hello! ";
     }
 }
