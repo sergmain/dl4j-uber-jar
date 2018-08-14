@@ -47,6 +47,12 @@
             <groupId>org.nd4j</groupId>
             <artifactId>${nd4j.backend}</artifactId>
             <version>${nd4j.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.bytedeco.javacpp-presets</groupId>
+                    <artifactId>mkl-dnn</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.deeplearning4j</groupId>
@@ -66,7 +72,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
     </dependencies>
 
     <!--mvn -Djavacpp.platform=linux-x86_64 clean package
