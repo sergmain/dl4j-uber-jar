@@ -1,1 +1,1 @@
-E:\opt\heroku\bin\heroku.exe %*
+E:\opt\heroku\bin\heroku.cmd %*
