@@ -13,7 +13,12 @@ public class AppRunner {
         for (Map.Entry<Object, Object> entry : properties.entrySet()) {
             System.out.println(String.format("%s : %s", entry.getKey(), entry.getValue()));
         }
-        SpringApplication.run(AppRunner.class, args);
+//        try {
+            SpringApplication.run(AppRunner.class, args);
+//        }
+//        catch (Throwable th) {
+//            throw new RuntimeException("Erorr", th);
+//        }
     }
 }
 

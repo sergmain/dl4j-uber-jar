@@ -1,1 +1,1 @@
-web: java -Dorg.bytedeco.javacpp.logger=slf4j -Dorg.bytedeco.javacpp.logger.debug=true -jar target/dl4j-uber-jar.jar
+web: java -Dorg.bytedeco.javacpp.logger=slf4j -Dorg.bytedeco.javacpp.logger.debug=true -Dorg.bytedeco.javacpp.cachedir=./target/.javacpp -jar target/dl4j-uber-jar.jar
