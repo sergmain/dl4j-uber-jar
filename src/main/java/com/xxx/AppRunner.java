@@ -13,14 +13,14 @@ import java.util.Properties;
 @Slf4j
 public class AppRunner {
     public static void main(String[] args) {
-        Properties properties = System.getProperties();
-        for (Map.Entry<Object, Object> entry : properties.entrySet()) {
-            System.out.println(String.format("%s : %s", entry.getKey(), entry.getValue()));
-        }
         try {
             SpringApplication.run(AppRunner.class, args);
         }
         finally {
+            Properties properties = System.getProperties();
+            for (Map.Entry<Object, Object> entry : properties.entrySet()) {
+                log.info("{} : {}", entry.getKey(), entry.getValue());
+            }
             dir("./target/.javacpp", 0);
         }
     }
